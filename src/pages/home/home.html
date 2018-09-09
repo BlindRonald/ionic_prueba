@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<img [src]="domSanitizer.bypassSecurityTrustUrl(currentImage)" *ngIf="currentImage">
+
+	<ion-item>
+		<ion-input type="text" [(ngModel)]="mensaje" placeholder="Mensaje"></ion-input>
+	</ion-item>
+
+	<button ion-button full (click)="Cargar_Img()">Cargar Imagen</button>
+	<button ion-button full (click)="Compartir_img()" [disabled]="!currentImage">Compartir en Instagram</button>
+
+	<ion-card>
+		<img src="{{profile_picture}}"/>
+		<ion-card-content>
+			<ion-card-title>
+				{{username}}
+			</ion-card-title>
+			<p>{{nombre}}</p>
+			<p>{{bio}}</p>
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>
